@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Rubik:wght@400;500;700;800;900&display=swap");
+
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	/* changes the 1REM from 16px to 10px */
+	font-size: 62.5%;
+}
+
+body {
+	font-family: "Roboto", sans-serif;
+	height: 100vh;
+
+	overflow: hidden;
+}
+
+.counter,
+.final {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
+
+.final {
+	transform: translate(-50%, -50%) scale(0);
+	font-size: 2rem;
+}
+
+.final button {
+	font-weight: bold;
+	font-size: 2rem;
+	border: none;
+	background-color: aquamarine;
+	padding: 1rem;
+}
+
+.counter.hide {
+	transform: translate(-50%, -50%) scale(0);
+	animation: hide 0.4s ease-out;
+}
+
+.final.show {
+	transform: translate(-50%, -50%) scale(1);
+	animation: show 0.4s ease-in;
+}
+
+@keyframes hide {
+	0% {
+		transform: translate(-50%, -50%) scale(1);
+	}
+
+	100% {
+		transform: translate(-50%, -50%) scale(0);
+	}
+}
+
+@keyframes show {
+	0% {
+		transform: translate(-50%, -50%) scale(0);
+	}
+
+	50% {
+		transform: translate(-50%, -50%) scale(1.4);
+	}
+
+	100% {
+		transform: translate(-50%, -50%) scale(1);
+	}
+}
+
+.nums {
+	color: #3498db;
+	font-size: 5rem;
+	position: relative;
+	width: 25rem;
+	height: 5rem;
+	overflow: hidden;
+}
+
+h3 {
+	margin: 2rem;
+	font-size: 3rem;
+}
+
+.nums span {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) rotate(120deg);
+	transform-origin: bottom center;
+}
+
+.nums span.in {
+	transform: translate(-50%, -50%) rotate(0deg);
+	animation: goIn 0.5s ease-in-out;
+}
+
+.nums span.out {
+	transform: translate(-50%, -50%) rotate(-120deg);
+	animation: goOut 0.5s ease-in-out;
+}
+
+@keyframes goIn {
+	0% {
+		transform: translate(-50%, -50%) rotate(120deg);
+	}
+
+	30% {
+		transform: translate(-50%, -50%) rotate(-20deg);
+	}
+
+	60% {
+		transform: translate(-50%, -50%) rotate(10deg);
+	}
+
+	100% {
+		transform: translate(-50%, -50%) rotate(0deg);
+	}
+}
+
+@keyframes goOut {
+	0% {
+		transform: translate(-50%, -50%) rotate(0deg);
+	}
+
+	60% {
+		transform: translate(-50%, -50%) rotate(20deg);
+	}
+
+	100% {
+		transform: translate(-50%, -50%) rotate(-120deg);
+	}
+}
